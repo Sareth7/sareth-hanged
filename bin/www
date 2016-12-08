@@ -1,0 +1,5 @@
+var config = require("../config");
+var App = require("../App");
+
+const app = new App({ config });
+app.run();

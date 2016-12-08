@@ -1,0 +1,12 @@
+{
+  "__DEV__": true,
+  "__PROD__": false,
+  "port": 3000,
+  "db": {
+    "name": "database",
+    "options": {
+      "valueEncoding": "json"
+    }
+  }
+
+}

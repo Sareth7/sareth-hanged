@@ -1,0 +1,4 @@
+2016/12/06-21:36:16.254 286c Recovering log #5
+2016/12/06-21:36:16.254 286c (ignoring error) database/000005.log: dropping 55 bytes; Corruption: checksum mismatch
+2016/12/06-21:36:16.349 286c Delete type=0 #5
+2016/12/06-21:36:16.349 286c Delete type=3 #4
