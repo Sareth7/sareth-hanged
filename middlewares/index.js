@@ -1,4 +1,5 @@
-module.exports = () => ({
-    reqParser: require("./reqParser")(...arguments),
-    reqLogs: require("./reqLogs")(...arguments)
+module.exports = (ctx) => ({
+    reqParser: require("./reqParser")(ctx),
+    reqLogs: require("./reqLogs")(ctx),
+    webpack: require("./webpack")(ctx)
 })

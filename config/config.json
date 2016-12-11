@@ -3,7 +3,7 @@
   "__PROD__": false,
   "port": 3000,
   "db": {
-    "name": "database",
+    "name": "db",
     "options": {
       "valueEncoding": "json"
     }

@@ -1,4 +1,5 @@
 var io = require("socket.io");
+var uuid = require("uuid");
 
 class Socket {
   constructor(server){
@@ -12,7 +13,7 @@ class Socket {
 
   connection(socket){
     console.log("user connection...");
-    socket.emit("connect", "your connect");
+    socket.emit("message", {message: `your id - ${uuid.v1()}`});
   }
 }
 

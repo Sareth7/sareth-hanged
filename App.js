@@ -13,6 +13,7 @@ class App{
         Object.assign(this, params);
         if(!this.log) this.log = this.getLogger();
         if(!this.mainHTML) this.mainHTML = this.getPATHMainHTML();
+        if(!this.baseDIR) this.baseDIR = __dirname;
         this.init();
     }
 
@@ -59,6 +60,7 @@ class App{
     useMiddlewares(){
         this.app.use(this.middlewares.reqLogs);
         this.app.use(this.middlewares.reqParser);
+        this.app.use(this.middlewares.webpack);
         this.app.use("/static", express.static(path.join(__dirname, "public")));
     }
 
