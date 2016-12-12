@@ -37,6 +37,10 @@ module.exports = (baseDir) => {
                     ],
                     loaders: ['react-hot', 'babel-loader?' + JSON.stringify(babelSettings)],
                     plugins: ['transform-runtime']
+                },
+                {
+                    test: /\.css$/,
+                    loaders: ["style-loader", "css-loader"]
                 }
             ]
         }
