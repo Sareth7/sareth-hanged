@@ -1,20 +1,40 @@
-import io from "socket.io-client";
 import React from "react";
-import Home from "./Home/Home";
 
-export default class App extends React.Component {
-    constructor(params){
-        super(params);
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as socketActions from "../actions/socketActions";
+
+
+class App extends React.Component {
+    constructor(params, context){
+        super(params, context);
     }
 
-    componentDidMount (){
-        this.socket = io();
-        this.socket.on("message", (msg) => console.log(msg));
+    componentWillMount (){
+        const { initializeConnection } = this.props.socketActions;
+        initializeConnection();
     }
 
     render(){
         return (
-            <Home/>
+            <div className="app">
+                {this.props.children}
+            </div>
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        socket: state.socket
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        socketActions: bindActionCreators(socketActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

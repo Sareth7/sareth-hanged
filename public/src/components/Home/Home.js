@@ -5,9 +5,13 @@ import swal from "sweetalert";
 import sweetalertStyles from "sweetalert/dist/sweetalert.css";
 
 import styles from "./styles.css";
-import Header from "../../components/Navbar";
+import Header from "../Navbar";
 
 export default class Home extends React.Component {
+    componentDidMount(){
+        const { socket } = this.props;
+    }
+
     render(){
         return (
             <div>
@@ -20,9 +24,9 @@ export default class Home extends React.Component {
                                 <h1 className="display-3 text-center">Оставь надежду, Висельник!</h1>
                                 <p className="lead">This is  simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
                                 <Button
-                                    outline color="primary"
+                                    color="primary"
                                     size="lg"
-                                    onClick={this.handleStartButtonClick}>
+                                    onClick={this.handleStartButtonClick.bind(this)}>
                                     Начать
                                 </Button>
                             </div>
@@ -35,24 +39,7 @@ export default class Home extends React.Component {
     }
 
     handleStartButtonClick(){
-        swal({
-                title: "An input!",
-                text: "Write something interesting:",
-                type: "input",
-                showCancelButton: true,
-                closeOnConfirm: false,
-                animation: "slide-from-top",
-                inputPlaceholder: "Write something"
-            },
-            function(inputValue){
-                if (inputValue === false) return false;
-
-                if (inputValue === "") {
-                    swal.showInputError("You need to write something!");
-                    return false
-                }
-
-                swal("Nice!", "You wrote: " + inputValue, "success");
-            });
+        const { socket } = this.props;
+        socket.emit("auth", {"login": "Sareth"});
     }
 }
