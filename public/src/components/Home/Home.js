@@ -39,7 +39,7 @@ export default class Home extends React.Component {
     }
 
     handleStartButtonClick(){
-        const { socket } = this.props;
-        socket.emit("auth", {"login": "Sareth"});
+        const { handleVKLogin } = this.props.userActions;
+        handleVKLogin();
     }
 }

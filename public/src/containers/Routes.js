@@ -1,14 +1,14 @@
 import React from "react";
-import { Router, Route, Redirect, IndexRoute, browserHistory } from 'react-router';
+import { Route, Redirect, IndexRoute} from 'react-router';
+
 import Home from "./Home";
 import App from "./App";
+import Abyss from "./Abyss";
 
-const Routes = () => (
-    <Router history = {browserHistory}>
-        <Route path = "/" component = {App}>
-            <IndexRoute component = {Home}/>
-        </Route>
-    </Router>
-)
+export default (
+    <Route path = "/" component = {App}>
+        <IndexRoute component = {Home}/>
+        <Route path = "/abyss" component = {Abyss}/>
+    </Route>
+);
 
-export default Routes;

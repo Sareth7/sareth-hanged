@@ -10,6 +10,7 @@ module.exports = (ctx) => {
 
     return [
         webpackMiddleware(compiler, {
+            noInfo: true,
             stats: {colors: true},
             publicPath: config.output.publicPath,
             watchOptions: {

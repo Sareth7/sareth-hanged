@@ -1,1 +1,2 @@
 export const INIT_CONNECTION = "INIT_CONNECTION";
+export const SOCKET_EMIT = "SOCKET_EMIT";
