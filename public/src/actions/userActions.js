@@ -31,6 +31,6 @@ export function handleVKLogin() {
                    payload: new Error("Ошибка авторизации")
                })
            }
-        }, 7)
+        })
     }
 }
